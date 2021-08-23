@@ -1,0 +1,30 @@
+.window {
+  width: 600px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin: 1%;
+}
+
+.button-window {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+}
+.list-window, .map-window {
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 60px;
+    border-radius: 7px;
+    background-color: rgb(188 60 60 / 25%);
+
+}
+
+

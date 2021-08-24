@@ -1,10 +1,12 @@
-
 import { BrowserRouter, Route } from 'react-router-dom';
 import UserLocation from './userlocation';
 import { useState} from "react";
 import './App.css';
 import Map from './map';
 import List from './list';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+
 
 
 
@@ -44,10 +46,9 @@ export default function App() {
                 </div>
               
             </div>
-              
-
             )}
           />
+          
         </BrowserRouter>
       
     </div>

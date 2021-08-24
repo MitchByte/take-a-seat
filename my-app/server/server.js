@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 
 
+
 app.use('/static', express.static(__dirname + '/public'));
 
 app.get('/next', (req, res) => {

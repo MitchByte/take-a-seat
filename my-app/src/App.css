@@ -1,11 +1,8 @@
 .window {
-  width: 600px;
-  height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
-  margin: 1%;
 }
 
 .button-window {
@@ -27,4 +24,7 @@
 
 }
 
+.inside-window {
+  margin:10px;
+}
 

@@ -7,19 +7,16 @@ import List from './list';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 
-
-
-
 export default function App() {
   const [window,setWindow ] = useState(true);
-  const [backgroundColor, setBackgroundColor] = useState();
+  // const [backgroundColor, setBackgroundColor] = useState();
   console.log("APP.js: window state, when render", window);
   //console.log("APP.js: backgroundcolor: ", backgroundColor);
 
   function listOrMap() {
     setWindow(!window);
     if (window){
-      setBackgroundColor("rgb(188 60 60)")
+      //setBackgroundColor("rgb(188 60 60)")
     }
     console.log("APP.js: window state after click event: ", window)
   }

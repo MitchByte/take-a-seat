@@ -5,7 +5,24 @@
     justify-content: space-between;
     align-items: flex-start;
     margin: 10px;
-    border: 1px solid black;
-    border-radius: 15px;
+    border: 10px solid #bcd0b166;
+    border-radius: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    position: absolute;
+    margin-left: 240px;
+    margin-left: 307px;
+    width: 66vw;
+    margin-top: 177px;
+}
+
+.filter h4 {
+    font-family: 'Rampart One', cursive;    
+    font-size: 20px;
+}
+
+.checkbox {
     padding: 10px;
 }

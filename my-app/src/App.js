@@ -5,20 +5,27 @@ import Map from './map';
 import List from './list';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Filter from './filter';
-import TOILET from './publicToilette.json'
+import TOILET from './publicToilette.json';
+import bath from "./background-s.jpg";
+import wash from "./wash.jpg"
+
 
 
 export default function App() {
   const [window,setWindow ] = useState(true);
   const [toilet, setToilet] = useState(TOILET);
   //console.log("APP.js toilet: ", toilet)
-  const [backgroundColor, setBackgroundColor] = useState("");
+  const [backgroundColorList, setBackgroundColorList] = useState("#bcd0b1");
+  const [backgroundColorMap, setBackgroundColorMap] = useState("#f8eec194");
+
   //console.log("APP.js: window state, when render", window);
   //console.log("APP.js: backgroundcolor: ", backgroundColor);
 
   function listOrMap() {
     setWindow(!window);
-    return window ? setBackgroundColor("red") : setBackgroundColor("rgb(188 60 60)")
+    backgroundColorList === "#bcd0b1" ? setBackgroundColorList("#f8eec194") : setBackgroundColorList("#bcd0b1");
+    backgroundColorMap === "#bcd0b1" ? setBackgroundColorMap("#f8eec194"): setBackgroundColorMap("#bcd0b1") ;
+
   }
 
   const filterToilets = (arg) => {
@@ -34,20 +41,22 @@ export default function App() {
           <Route exact path="/" 
             render={() => (
               <div>
-                <div className="headline">
-                  <h1>Take a seat!</h1>
+                <div className="header">
+                  <h1 className="headline">Take a seat!</h1>
+                  <img src={bath} className="bath-header"/>
                 </div>
-                <di>
+                <div className="filter-box">
+                  <img src={wash} className="wash"/>
                   <Filter toilet={toilet} filterToilets={filterToilets}/>
-                </di>
+                </div>
                 <div className="window">
                   <div className="button-window">
-                    <p className="list-window" style={{background:backgroundColor}} onClick={listOrMap}>List</p>
-                    <p className="map-window" style={{background:backgroundColor}} onClick={listOrMap}>Map</p>
+                    <p className="list-window" style={{background:backgroundColorList}} onClick={listOrMap}>List</p>
+                    <p className="map-window" style={{background:backgroundColorMap}} onClick={listOrMap}>Map</p>
                   </div>
                   <div className="inside-window">
-                    {window && <div><List toilet={toilet} /></div>}
-                    {!window && <div><Map toilet= {toilet} /></div>}
+                    {window && <div><List toilet={toilet}/></div>}
+                    {!window && <div><Map toilet= {toilet} filterToilets={filterToilets} /></div>}
                   </div>
                 </div>
               

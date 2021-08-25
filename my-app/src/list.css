@@ -8,8 +8,7 @@
     flex-direction: column;
     background-color: rgb(188 60 60);
     width: 90%;
-    border: 1px solid black;
-    border-radius: 16px;
+    border-radius: 1px;
     outline: none;
     margin: 1%;
     padding: 2%;
@@ -41,4 +40,13 @@
     width: 20px;
     height: 20px;
     object-fit: cover;
+}
+
+.toilet-user-location {
+    width: 80vw;
+    height: 85vh;
+}
+
+.toilet-list-box {
+    border: 1px solid black;
 }

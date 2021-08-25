@@ -30,9 +30,14 @@ export default function List({toilet}) {
             </div>
             </div>
             <div className="toilet-list-container">
-
+                {toilet.slice(0, 10).map((toilet,index) => (
+                    <div key={toilet.id} className="toilet-list-box">
+                            <p>Located at {toilet.street}</p>
+                            <p>Price {toilet.price}</p>
+                        </div>
+                ))}
             </div>
-            <p>List</p>
+            
         </div>
     )
 }

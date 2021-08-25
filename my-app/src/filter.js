@@ -50,16 +50,18 @@ export default function Filter ({toilet,filterToilets}) {
     console.log("Urinal checked? ",checkedUrinal.toString());
     
     const newArray = toilet.filter(function (el) {
-        return !checkedPrice ? true : el.price === 0  &&
-                !checkedCoins ? true : el.canBePaidWithCoins === checkedCoins &&
-                !checkedCoins ? true : el.canBePaidWithApp === checkedApp &&
-                !checkedCoins ? true : el.canBePaidWithNFC === checkedNFC &&
-                !checkedCoins ? true :el.hasChangingTable === checkedTable &&
-                !checkedCoins ? true :el.isWheelchairAccesible === checkedWheel &&
-                !checkedCoins ? true : el.hasUrinal === checkedUrinal
+        return (
+            (!checkedPrice || el.price === 0 )
+            && (!checkedCoins || el.canBePaidWithCoins === checkedCoins)
+            && (!checkedApp || el.canBePaidWithApp === checkedApp)
+            && (!checkedNFC || el.canBePaidWithNFC === checkedNFC )
+            && ( !checkedWheel || el.isWheelchairAccesible === checkedWheel)
+            && (!checkedTable || el.hasChangingTable === checkedTable)
+            && (!checkedUrinal || el.hasUrinal === checkedUrinal)
+            ) 
     });
 
-    console.log("new array", newArray);
+    console.log("Filter.js: new array", newArray);
     filterToilets = () => {
         filterToilets(newArray);
     }
@@ -67,8 +69,8 @@ export default function Filter ({toilet,filterToilets}) {
 
 
     return (
-        <div className="filter">
-            <div>
+        <div className="filter" filterToilets={newArray}>
+            <div className="checkbox">
                 <h4>Pricing</h4>
                 <div>
                     <label>
@@ -91,7 +93,7 @@ export default function Filter ({toilet,filterToilets}) {
                     </label>
                 </div>
             </div>
-            <div>
+            <div className="checkbox">
                 <h4>Accessibility</h4>
                 <div>
                     <label>
@@ -104,7 +106,7 @@ export default function Filter ({toilet,filterToilets}) {
                     </label>
                 </div>
             </div>
-            <div>
+            <div className="checkbox">
                 <h4>Extras</h4>
                 <div>
                     <label>

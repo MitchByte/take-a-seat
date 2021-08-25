@@ -1,8 +1,50 @@
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  height: 88vh;
+  font-family: 'Pacifico', cursive;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #bcd0b1;
+  font-size: 40px;
+  margin:0;
+}
+
+.headline {
+  position: absolute;
+  padding-right: 90px;
+  padding-left: 90px;
+  background-color: #ffffff52;
+  border-radius: 1px;
+}
+
+.bath-header {
+  height: 70vh;
+  width: 25vw;
+  padding-left: 360px;
+}
+
+.filter-box {
+    display: flex;
+    background-color: #f8eec194;
+    margin: 0;
+    padding: 20px;
+    flex-direction: row;
+}
+.wash {
+  margin:100px;
+  height: 75vh;
+  width: 25vw;
+}
+
 .window {
   display: flex;
   flex-direction: column;
   align-items: center;
   align-content: center;
+  padding:20px;
 }
 
 .button-window {
@@ -13,14 +55,12 @@
     border-radius: 7px;
 }
 .list-window, .map-window {
-    text-align: center;
-    border: 1px solid black;
-    padding: 5px;
-    margin-top: 0;
-    margin-bottom: 0;
-    width: 60px;
-    border-radius: 7px;
-    background-color: rgb(188 60 60 / 25%);
+  text-align: center;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 60px;
+  border-radius: 2px;
 
 }
 

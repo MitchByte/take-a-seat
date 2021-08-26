@@ -2,7 +2,8 @@ import { useEffect, useState} from "react";
 import './filter.css';
 
 
-export default function Filter ({toilet}) {
+
+export default function Filter ({toilet,updateParent, berlin}) {
     const [toiletArray, setToiletArray] = useState(toilet);
 
     const [checkedPrice, setCheckedPrice] = useState(false);
@@ -39,7 +40,7 @@ export default function Filter ({toilet}) {
         setCheckedUrinal(!checkedUrinal);
     };
 
-
+    /*
     console.log("Price checked? ",checkedPrice);
     console.log("Coins checked? ",checkedCoins.toString());
     console.log("App checked? ",checkedApp.toString());
@@ -47,26 +48,38 @@ export default function Filter ({toilet}) {
     console.log("Wheelchair checked? ",checkedWheel.toString());
     console.log("Table checked? ",checkedTable.toString());
     console.log("Urinal checked? ",checkedUrinal.toString());
+    */
     useEffect(() => {
+        console.log("FILTER.js: checkbox changed ")
         const newArray = toiletArray.filter(function (el) {
-        return (
-            (!checkedPrice || el.price === 0 )
-            && (!checkedCoins || el.canBePaidWithCoins === checkedCoins)
-            && (!checkedApp || el.canBePaidWithApp === checkedApp)
-            && (!checkedNFC || el.canBePaidWithNFC === checkedNFC )
-            && ( !checkedWheel || el.isWheelchairAccesible === checkedWheel)
-            && (!checkedTable || el.hasChangingTable === checkedTable)
-            && (!checkedUrinal || el.hasUrinal === checkedUrinal)
-            ) 
-        });
+            return (
+                (!checkedPrice || el.price === 0 )
+                && (!checkedCoins || el.canBePaidWithCoins === checkedCoins)
+                && (!checkedApp || el.canBePaidWithApp === checkedApp)
+                && (!checkedNFC || el.canBePaidWithNFC === checkedNFC )
+                && ( !checkedWheel || el.isWheelchairAccesible === checkedWheel)
+                && (!checkedTable || el.hasChangingTable === checkedTable)
+                && (!checkedUrinal || el.hasUrinal === checkedUrinal)
+                ) 
+            });
         setToiletArray(newArray);
+        console.log("FILTER.js: new array", toiletArray)
     },[checkedPrice,checkedCoins,checkedApp,checkedNFC,checkedWheel,checkedTable,checkedUrinal])
+
+    useEffect(()=> {
+        console.log("Filter.js: Toiletarray update ")
+        updateParent(toiletArray);
+    },[toiletArray])
     
     
     
 
 
     return (
+        <div>
+            <div className="berlin-img" >
+                <img src={berlin} alt="berlin"/>
+            </div>
         <div className="filter">
             <div className="checkbox">
                 <h4>Pricing</h4>
@@ -112,6 +125,7 @@ export default function Filter ({toilet}) {
                     </label>
                 </div>
             </div>
+        </div>
         </div>
     )
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ReactMapGL,{Popup, GeolocateControl,FullscreenControl,NavigationControl} from 'react-map-gl';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./map.css";
 import Pins from './pins';
 import ToiletInfo from './toilet-info';
@@ -27,14 +27,20 @@ const navStyle = {
 
 
 export default function Map({toilet}) {
-    //console.log("MAP.js toilet array: ", toilet)
+
+    const [toiletArrayMap, setToiletArrayMap] = useState(toilet);
+    console.log("MAP.js toiletArrayMap: ", toiletArrayMap);
+    const [popupInfo, setPopupInfo] = useState(null);
     const [viewport, setViewport] = useState({
         latitude: 52.516806,
         longitude: 13.383309,
         zoom: 12
     });
 
-  const [popupInfo, setPopupInfo] = useState(null);
+    useEffect(()=> {
+        setToiletArrayMap(toilet)
+    },[toilet]);
+
 
     return (
         <div className="map-component">
@@ -45,7 +51,7 @@ export default function Map({toilet}) {
                 onViewportChange={(viewport) => setViewport(viewport)}
                 mapboxApiAccessToken={accessToken}
             >
-                <Pins data={toilet} onClick={setPopupInfo}/>
+                <Pins data={toiletArrayMap} onClick={setPopupInfo}/>
                 {popupInfo && (
                     <Popup
                         tipSize={5}

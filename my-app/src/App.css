@@ -1,40 +1,10 @@
 
-.header {
-  display: flex;
-  flex-wrap: wrap;
-  height: 88vh;
-  font-family: 'Pacifico', cursive;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  background-color: #bcd0b1;
-  font-size: 40px;
-  margin:0;
-}
- 
-.headline {
-  position: absolute;
-  padding-right: 90px;
-  padding-left: 90px;
-  background-color: #ffffff52;
-  border-radius: 1px;
-}
-
-.bath-header {
-  height: 70vh;
-  width: 25vw;
-  padding-left: 360px;
-}
 
 .filter-box {
-    display: flex;
-    background-color: #f8eec194;
-    margin: 0;
-    padding: 20px;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  height: 450px;
+  display: flex;
+  background-color: #f8eec194;
+  flex-direction: column;
 }
 .wash {
   margin:100px;
@@ -43,6 +13,8 @@
 }
 
 .window {
+  position: relative;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,4 +43,6 @@
 .inside-window {
   margin:10px;
 }
+
+
 

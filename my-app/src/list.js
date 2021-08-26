@@ -2,25 +2,19 @@ import { useState,useEffect } from "react";
 import './list.css';
 
 export default function List({toilet}) {
-    const [toiletArrayList, setToiletArrayList] = useState(toilet)
+    const [toiletArrayList, setToiletArrayList] = useState(toilet);
+    console.log("LIST.js: toilet array", toiletArrayList)
     const [location,setLocation ] = useState("");
 
+    useEffect(()=> {
+        setToiletArrayList(toilet)
+    },[toilet]);
+
     useEffect( () => {
-        console.log(`LIst.js: :USERLOCATION ${location} has been rendered`);
         setToiletArrayList(toilet.filter(function (el) {
             return el.street.toLowerCase().startsWith(location.toLowerCase())
         }))
-        //refer to scallion network findpeople.js
-        //axios.get("/api/user-location")
     },[location])
-
-   /*const filterToilets = (toilet, location)  =>{
-        return toilet.filter(function (el) {
-            return el.street.toLowerCase().startsWith(location.toLowerCase())
-        })
-    }*/
-    console.log("LIST.js: your searched location:", location);
-    console.log("LIST.js: new location array", toiletArrayList)
 
     return (
         <div className="list-component">
@@ -33,13 +27,23 @@ export default function List({toilet}) {
                 
             </div>
             </div>
+            <div>
+                <p> There are {toiletArrayList.length} toilets found with your preferences.</p>
+            </div>
             <div className="toilet-list-container">
-                {toiletArrayList.slice(0, 10).map((toilet,index) => (
-                    <div key={toilet.id} className="toilet-list-box">
-                            <p>Located at {toilet.street}</p>
-                            <p>Price {toilet.price}</p>
-                        </div>
-                ))}
+                <div>
+                    {toiletArrayList && toiletArrayList.slice(0, 10).map((toilet,index) => (
+                        <div key={toilet.id} className="toilet-list-box">
+                                <p>Located at {toilet.street}</p>
+                                <p>Price {toilet.price}</p>
+                            </div>
+                    ))}
+                </div>
+                <div>
+                    {!toiletArrayList && <p> No toilets found</p>}
+                </div>
+                
+
             </div>
             
         </div>

@@ -1,12 +1,15 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 import { useState} from "react";
 import './App.css';
+import Welcome from './welcome';
+import Headline from './headline';
 import Map from './map';
 import List from './list';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Filter from './filter';
 import TOILET from './publicToilette.json';
 import bath from "./background-s.jpg";
+import berlin from "./berlin.jpg";
 //import wash from "./wash.jpg"
 
 
@@ -26,10 +29,10 @@ export default function App() {
 
   }
 
-  /*const filterToilets = (arg) => {
+  const filterToilets = (arg) => {
     setToilet(arg)
     console.log("APP.js: filter toilets:", arg)
-  }*/
+  }
   
 
   return (
@@ -39,12 +42,18 @@ export default function App() {
           <Route exact path="/" 
             render={() => (
               <div>
-                <div className="header">
-                  <h1 className="headline">Take a seat!</h1>
-                  <img src={bath} className="bath-header"/>
+                <Welcome bath={bath} />
+            </div>
+            )}
+          />
+          <Route path="/Berlin"
+            render={() => (
+              <div>
+                <div>
+                  <Headline/>
                 </div>
                 <div className="filter-box">
-                  <Filter toilet={toilet} />
+                  <Filter toilet={toilet} updateParent={filterToilets} berlin={berlin}/>
                 </div>
                 <div className="window">
                   <div className="button-window">
@@ -56,10 +65,33 @@ export default function App() {
                     {!window && <div><Map toilet= {toilet}/></div>}
                   </div>
                 </div>
-              
-            </div>
+
+              </div>
             )}
           />
+          <Route path="/Düsseldorf"
+            render={()=> (
+              <div>
+                <div>
+                  <Headline/>
+                </div>
+                <p>Under construction</p>
+              </div>
+            )}
+            />
+          <Route path="/Hamburg"
+            render={()=> (
+              <div>
+                <div>
+                  <Headline/>
+                </div>
+                <p>Under construction</p>
+                <a href="https://www.hamburg.de/oeffentliche-toiletten/" target="_blank">But you can search here</a>
+              </div>
+            )}
+          
+          />
+
           
         </BrowserRouter>
       

@@ -51,7 +51,9 @@ export default function Filter ({toilet,updateParent, berlin}) {
     */
     useEffect(() => {
         console.log("FILTER.js: checkbox changed ")
-        const newArray = toiletArray.filter(function (el) {
+        console.log("wheelchair", checkedWheel);
+        //one prop for the filter
+        const newArray = toilet.filter(function (el) {
             return (
                 (!checkedPrice || el.price === 0 )
                 && (!checkedCoins || el.canBePaidWithCoins === checkedCoins)

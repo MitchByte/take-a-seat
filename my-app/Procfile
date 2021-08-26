@@ -1,1 +1,0 @@
-web: node ../my-app/sever/server.js

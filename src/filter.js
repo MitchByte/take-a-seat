@@ -4,6 +4,8 @@ import './filter.css';
 
 
 export default function Filter ({toilet,updateParent, berlin}) {
+    const [startArray ]= useState(toilet);
+    //console.log("startarray length", startArray.length)
     const [toiletArray, setToiletArray] = useState(toilet);
 
     const [checkedPrice, setCheckedPrice] = useState(false);
@@ -53,7 +55,7 @@ export default function Filter ({toilet,updateParent, berlin}) {
         console.log("FILTER.js: checkbox changed ")
         console.log("wheelchair", checkedWheel);
         //one prop for the filter
-        const newArray = toilet.filter(function (el) {
+        const newArray = startArray.filter(function (el) {
             return (
                 (!checkedPrice || el.price === 0 )
                 && (!checkedCoins || el.canBePaidWithCoins === checkedCoins)

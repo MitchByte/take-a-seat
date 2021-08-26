@@ -7,19 +7,17 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import Filter from './filter';
 import TOILET from './publicToilette.json';
 import bath from "./background-s.jpg";
-import wash from "./wash.jpg"
+//import wash from "./wash.jpg"
 
 
 
 export default function App() {
   const [window,setWindow ] = useState(true);
   const [toilet, setToilet] = useState(TOILET);
-  //console.log("APP.js toilet: ", toilet)
+
   const [backgroundColorList, setBackgroundColorList] = useState("#bcd0b1");
   const [backgroundColorMap, setBackgroundColorMap] = useState("#f8eec194");
 
-  //console.log("APP.js: window state, when render", window);
-  //console.log("APP.js: backgroundcolor: ", backgroundColor);
 
   function listOrMap() {
     setWindow(!window);
@@ -28,10 +26,10 @@ export default function App() {
 
   }
 
-  const filterToilets = (arg) => {
+  /*const filterToilets = (arg) => {
     setToilet(arg)
     console.log("APP.js: filter toilets:", arg)
-  }
+  }*/
   
 
   return (
@@ -46,8 +44,7 @@ export default function App() {
                   <img src={bath} className="bath-header"/>
                 </div>
                 <div className="filter-box">
-                  <img src={wash} className="wash"/>
-                  <Filter toilet={toilet} filterToilets={filterToilets}/>
+                  <Filter toilet={toilet} />
                 </div>
                 <div className="window">
                   <div className="button-window">
@@ -56,7 +53,7 @@ export default function App() {
                   </div>
                   <div className="inside-window">
                     {window && <div><List toilet={toilet}/></div>}
-                    {!window && <div><Map toilet= {toilet} filterToilets={filterToilets} /></div>}
+                    {!window && <div><Map toilet= {toilet}/></div>}
                   </div>
                 </div>
               

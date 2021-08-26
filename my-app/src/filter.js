@@ -1,10 +1,9 @@
-import { useState} from "react";
+import { useEffect, useState} from "react";
 import './filter.css';
-//import TOILET from "./publicToilette.json";
 
 
-export default function Filter ({toilet,filterToilets}) {
-    console.log("FILTER.js: props",filterToilets)
+export default function Filter ({toilet}) {
+    const [toiletArray, setToiletArray] = useState(toilet);
 
     const [checkedPrice, setCheckedPrice] = useState(false);
     const handlePrice = () => {
@@ -48,8 +47,8 @@ export default function Filter ({toilet,filterToilets}) {
     console.log("Wheelchair checked? ",checkedWheel.toString());
     console.log("Table checked? ",checkedTable.toString());
     console.log("Urinal checked? ",checkedUrinal.toString());
-    
-    const newArray = toilet.filter(function (el) {
+    useEffect(() => {
+        const newArray = toiletArray.filter(function (el) {
         return (
             (!checkedPrice || el.price === 0 )
             && (!checkedCoins || el.canBePaidWithCoins === checkedCoins)
@@ -59,17 +58,16 @@ export default function Filter ({toilet,filterToilets}) {
             && (!checkedTable || el.hasChangingTable === checkedTable)
             && (!checkedUrinal || el.hasUrinal === checkedUrinal)
             ) 
-    });
-
-    console.log("Filter.js: new array", newArray);
-    filterToilets = () => {
-        filterToilets(newArray);
-    }
+        });
+        setToiletArray(newArray);
+    },[checkedPrice,checkedCoins,checkedApp,checkedNFC,checkedWheel,checkedTable,checkedUrinal])
+    
+    
     
 
 
     return (
-        <div className="filter" filterToilets={newArray}>
+        <div className="filter">
             <div className="checkbox">
                 <h4>Pricing</h4>
                 <div>

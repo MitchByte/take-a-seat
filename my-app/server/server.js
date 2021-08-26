@@ -15,6 +15,8 @@ app.use(cookieSessionMiddleware);
 app.use('/static', express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'build')));
 
+console.log("hello from server")
+
 app.listen(process.env.PORT || port, () => {
   console.log(`app listening at http://localhost:${port}`)
 })

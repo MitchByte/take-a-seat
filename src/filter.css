@@ -1,0 +1,30 @@
+.filter {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 10px;
+    border: 10px solid #bcd0b166;
+    border-radius: 1px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+}
+
+.filter h4 {
+    font-family: 'Rampart One', cursive;    
+    font-size: 20px;
+}
+
+.checkbox {
+    padding: 20px;
+}
+
+.berlin-img {
+    height: 10vh;
+    width: 100%;
+    object-fit: cover;
+}

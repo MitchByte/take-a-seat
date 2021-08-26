@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const cookieSession = require('cookie-session');
+const path = require("path");
 
 
 const cookieSessionMiddleware = cookieSession({

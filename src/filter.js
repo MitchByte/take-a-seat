@@ -82,7 +82,7 @@ export default function Filter ({toilet,updateParent, berlin}) {
     return (
         <div>
             <div className="berlin-img" >
-                <img src={berlin} alt="berlin"/>
+                <img className="berlin" src={berlin} alt="berlin"/>
             </div>
         <div className="filter">
             <div className="checkbox">

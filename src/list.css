@@ -52,3 +52,10 @@
     padding: 10px;
     margin: 5px;
 }
+
+@media (max-width:480px) {
+    .list-component {
+        width: 430px;
+        height: 100%;
+    }
+}

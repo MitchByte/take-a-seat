@@ -28,3 +28,16 @@
     width: 100%;
     object-fit: cover;
 }
+
+
+@media (max-width:480px) {
+    .berlin-img {
+        width: 480px;
+        height: 10vh;
+        object-fit: cover;
+    }
+    .berlin {
+        width: 480px;
+        height: 490px;
+    }
+}

@@ -37,3 +37,26 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+@media (max-width:480px) {
+  .header {
+    font-size: 20px;
+    height: 550px;
+
+  }
+  .headline {
+    position: absolute;
+    padding-right: 90px;
+    padding-left: 90px;
+    background-color: #ffffff52;
+    border-radius: 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+  .bath-header {
+    height: 50vh;
+    width: 35vw;
+    padding-left: 267px;
+    margin-top: 60px;
+}
+}

@@ -10,7 +10,6 @@ import Filter from './filter';
 import TOILET from './publicToilette.json';
 import bath from "./background-s.jpg";
 import berlin from "./berlin.jpg";
-//import wash from "./wash.jpg"
 
 
 

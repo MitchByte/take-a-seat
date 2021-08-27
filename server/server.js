@@ -14,7 +14,7 @@ const cookieSessionMiddleware = cookieSession({
 app.use(cookieSessionMiddleware);
 
 app.use('/static', express.static(__dirname + '/public'));
-app.use(express.static(path.join(__dirname, '../build')));
+app.use("*", express.static(path.join(__dirname, '../build')));
 
 console.log("hello from server")
 

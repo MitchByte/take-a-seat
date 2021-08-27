@@ -41,3 +41,14 @@
         height: 490px;
     }
 }
+
+@media (max-width:320px) {
+    .berlin-img {
+        width: 320px;
+        height: 10vh;
+        object-fit: cover;
+    }
+    .berlin {
+        width: 320px;
+        height: 630px;    }
+}

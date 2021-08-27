@@ -1,5 +1,6 @@
 
 .header {
+  width:100vw;
   display: flex;
   flex-wrap: wrap;
   font-family: 'Pacifico', cursive;
@@ -59,4 +60,46 @@ a:hover {
     padding-left: 267px;
     margin-top: 60px;
 }
+}
+
+@media (max-width:320px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin: 0;
+  }
+  .headline {
+    position: absolute;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: #ffffff52;
+    border-radius: 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 40px;
+    margin: 0;
+    margin-bottom: 110px;
+  }
+  .bath-header {
+    height: 40vh;
+    width: 50vw;
+    padding-left: 0px;
+    padding-top: 0;
+    margin: 0;
+ 
+  }
+  p {
+    font-size: 15px;
+    margin-top: 20px;  }
+
+  .cities {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+  }
+
+  a {
+    margin:0px;
+  }
 }
